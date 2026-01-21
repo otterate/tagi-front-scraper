@@ -80,7 +80,10 @@ def send_email(body):
     # Hole Credentials aus Umgebungsvariablen
     sender_email = os.getenv('EMAIL_USER')
     sender_password = os.getenv('EMAIL_PASSWORD')
-    recipient_email = "vanessa.hann@tamedia.ch"
+    recipients = [
+        "pascal.vanz@tamedia.ch", 
+        "vanessa.hann@tamedia.ch"]
+    recipient_email = ", ".join(recipients)
     
     # Validierung
     if not sender_email or not sender_password:
