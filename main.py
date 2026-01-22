@@ -6,13 +6,12 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from zoneinfo import ZoneInfo
 
-# Versuche .env zu laden (für lokales Testing)
-# In GitHub Actions werden die Secrets direkt als ENV vars gesetzt
+# Versuche .env zu laden
 try:
     from dotenv import load_dotenv
     load_dotenv()
 except ImportError:
-    # dotenv nicht installiert (z.B. in GitHub Actions)
+    # dotenv nicht installiert
     pass
 
 def fetch_front_articles():
@@ -60,13 +59,12 @@ def format_email_body(articles):
     body = f"Tagesanzeiger Front - {now}\n"
     body += "=" * 60 + "\n\n"
     
-    for article in articles:
-        position = article.get('sortID', 'N/A')
+    for index, article in enumerate(articles, start=1):
         title = article.get('content', {}).get('title', 'Kein Titel')
         url_path = article.get('content', {}).get('url', '')
         full_url = f"https://www.tagesanzeiger.ch{url_path}"
         
-        body += f"Position {position}\n"
+        body += f"Position {index}\n"
         body += f"Titel: {title}\n"
         body += f"URL: {full_url}\n\n"
     
