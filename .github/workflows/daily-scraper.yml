@@ -1,12 +1,9 @@
 name: Tagesanzeiger Front Scraper
 
 on:
-  # Täglich um 6:30 Uhr Schweizer Zeit (Winterzeit CET = UTC+1)
-  # Für 6:30 CET brauchst du: 5:30 UTC
-  # Für 6:30 CEST (Sommerzeit) brauchst du: 4:30 UTC
   schedule:
     - cron: '30 5 * * *'  # 6:30 CET (Winterzeit)
-    # Im März auf '30 4 * * *' ändern für Sommerzeit!
+  
   
   # Ermöglicht manuelles Triggern zum Testen
   workflow_dispatch:
