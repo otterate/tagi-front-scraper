@@ -4,6 +4,7 @@ from datetime import datetime
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from zoneinfo import ZoneInfo
 
 # Versuche .env zu laden (für lokales Testing)
 # In GitHub Actions werden die Secrets direkt als ENV vars gesetzt
@@ -53,7 +54,8 @@ def format_email_body(articles):
     """
     Erstellt den Plain-Text Body für die E-Mail.
     """
-    now = datetime.now().strftime("%d.%m.%Y, %H:%M Uhr")
+    swiss_time = datetime.now(ZoneInfo("Europe/Zurich"))
+    now = swiss_time.strftime("%d.%m.%Y, %H:%M Uhr")
     
     body = f"Tagesanzeiger Front - {now}\n"
     body += "=" * 60 + "\n\n"
@@ -92,7 +94,8 @@ def send_email(body):
         return False
     
     # E-Mail erstellen
-    subject = f"Tagesanzeiger Front-Artikel - {datetime.now().strftime('%d.%m.%Y')}"
+    swiss_time = datetime.now(ZoneInfo("Europe/Zurich"))
+    subject = f"Tagesanzeiger Front-Artikel - {swiss_time.strftime('%d.%m.%Y')}"
     
     msg = MIMEMultipart()
     msg['From'] = sender_email
