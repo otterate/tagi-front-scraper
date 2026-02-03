@@ -82,7 +82,9 @@ def send_email(body):
     sender_password = os.getenv('EMAIL_PASSWORD')
     recipients = [
         "pascal.vanz@tamedia.ch", 
-        "vanessa.hann@tamedia.ch"]
+        "vanessa.hann@tamedia.ch",
+        "patrick.kuehnis@tamedia.ch",
+        "amir.mustedanagic@tamedia.ch"]
     recipient_email = ", ".join(recipients)
     
     # Validierung
