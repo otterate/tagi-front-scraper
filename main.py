@@ -84,7 +84,11 @@ def send_email(body):
         "pascal.vanz@tamedia.ch", 
         "vanessa.hann@tamedia.ch",
         "patrick.kuehnis@tamedia.ch",
-        "amir.mustedanagic@tamedia.ch"]
+        "amir.mustedanagic@tamedia.ch",
+        "tina.huber@tamedia.ch",
+        "anna.baumgartner@tamedia.ch",
+        "noah.fend@tamedia.ch",
+        "matthias.chapman@tamedia.ch"]
     recipient_email = ", ".join(recipients)
     
     # Validierung
