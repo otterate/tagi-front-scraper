@@ -2,7 +2,7 @@ name: Tagesanzeiger Front Scraper
 
 on:
   schedule:
-    - cron: '25 5 * * *'  # 6:30 CET (Winterzeit)
+    - cron: '25 5 * * *'  # 6:25 CET (Winterzeit)
     #Sommerzeit umstellen -> (CEST = UTC+2): '30 4 * * *
   
   
